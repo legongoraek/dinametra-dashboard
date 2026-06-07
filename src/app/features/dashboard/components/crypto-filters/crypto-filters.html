@@ -1,0 +1,76 @@
+<form class="filters-form" aria-label="Filtros del dashboard">
+  <div class="filter-field">
+    <label for="coin">Criptomoneda</label>
+
+    <p-select
+      inputId="coin"
+      [options]="cryptoOptions"
+      optionLabel="label"
+      optionValue="value"
+      [(ngModel)]="filters.coinId"
+      name="coinId"
+      placeholder="Selecciona una moneda"
+      styleClass="w-full"
+      (onChange)="emitFilters()"
+    />
+  </div>
+
+  <div class="filter-field">
+    <label for="currency">Divisa</label>
+
+    <p-select
+      inputId="currency"
+      [options]="currencyOptions"
+      optionLabel="label"
+      optionValue="value"
+      [(ngModel)]="filters.currency"
+      name="currency"
+      placeholder="Selecciona una divisa"
+      styleClass="w-full"
+      (onChange)="emitFilters()"
+    />
+  </div>
+
+  <div class="filter-field">
+    <label for="days">Rango de tiempo</label>
+
+    <p-select
+      inputId="days"
+      [options]="daysOptions"
+      optionLabel="label"
+      optionValue="value"
+      [(ngModel)]="filters.days"
+      name="days"
+      placeholder="Selecciona un rango"
+      styleClass="w-full"
+      (onChange)="emitFilters()"
+    />
+  </div>
+
+  <div class="filter-field">
+    <label for="sortBy">Ordenar por</label>
+
+    <p-select
+      inputId="sortBy"
+      [options]="sortOptions"
+      optionLabel="label"
+      optionValue="value"
+      [(ngModel)]="filters.sortBy"
+      name="sortBy"
+      placeholder="Selecciona un orden"
+      styleClass="w-full"
+      (onChange)="emitFilters()"
+    />
+  </div>
+
+  <div class="filter-actions">
+    <p-button
+      type="button"
+      label="Restablecer"
+      icon="pi pi-refresh"
+      severity="secondary"
+      outlined="true"
+      (onClick)="resetFilters()"
+    />
+  </div>
+</form>

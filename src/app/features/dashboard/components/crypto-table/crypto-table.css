@@ -1,0 +1,74 @@
+.crypto-table-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.coin-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.coin-cell strong {
+  display: block;
+  color: #f8fafc;
+}
+
+.coin-cell span {
+  display: block;
+  margin-top: 2px;
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.empty-table {
+  padding: 32px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+:host ::ng-deep .p-datatable {
+  color: #e5e7eb;
+}
+
+:host ::ng-deep .p-datatable-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th {
+  background: rgba(15, 23, 42, 0.92);
+  color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.14);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr {
+  background: rgba(15, 23, 42, 0.52);
+  color: #e5e7eb;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td {
+  border-color: rgba(148, 163, 184, 0.12);
+  white-space: nowrap;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr:hover {
+  background: rgba(30, 41, 59, 0.74);
+}
+
+:host ::ng-deep .p-paginator {
+  background: rgba(15, 23, 42, 0.76);
+  border-color: rgba(148, 163, 184, 0.14);
+  color: #cbd5e1;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-page,
+:host ::ng-deep .p-paginator .p-paginator-next,
+:host ::ng-deep .p-paginator .p-paginator-prev,
+:host ::ng-deep .p-paginator .p-paginator-first,
+:host ::ng-deep .p-paginator .p-paginator-last {
+  color: #cbd5e1;
+}

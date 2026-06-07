@@ -1,0 +1,47 @@
+<section class="summary-grid" aria-label="Resumen de la criptomoneda seleccionada">
+  <p-card styleClass="summary-card">
+    <div class="summary-content">
+      <div>
+        <span class="summary-label">Precio actual</span>
+        <strong>{{ formatCurrency(coin?.current_price) }}</strong>
+        <small>{{ coin?.name || 'Moneda seleccionada' }}</small>
+      </div>
+
+      @if (coin?.image) {
+        <img
+          class="coin-icon"
+          [src]="coin?.image"
+          [alt]="'Logo de ' + coin?.name"
+        />
+      }
+    </div>
+  </p-card>
+
+  <p-card styleClass="summary-card">
+    <span class="summary-label">Market Cap</span>
+    <strong>{{ formatCurrency(coin?.market_cap) }}</strong>
+    <small>Capitalización de mercado</small>
+  </p-card>
+
+  <p-card styleClass="summary-card">
+    <span class="summary-label">Volumen 24h</span>
+    <strong>{{ formatCurrency(coin?.total_volume) }}</strong>
+    <small>Volumen negociado</small>
+  </p-card>
+
+  <p-card styleClass="summary-card">
+    <div class="summary-content">
+      <div>
+        <span class="summary-label">Cambio 24h</span>
+        <strong>{{ formatPercent(coin?.price_change_percentage_24h) }}</strong>
+        <small>Variación reciente</small>
+      </div>
+
+      <p-tag
+        [severity]="changeSeverity"
+        [icon]="changeIcon"
+        [value]="coin?.market_cap_rank ? '#' + coin?.market_cap_rank : 'N/A'"
+      />
+    </div>
+  </p-card>
+</section>

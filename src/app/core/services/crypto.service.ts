@@ -22,7 +22,7 @@ export class CryptoService {
     const params = new HttpParams()
       .set('vs_currency', currency)
       .set('order', this.getCoinGeckoOrder(sortBy))
-      .set('per_page', '10')
+      .set('per_page', '20')
       .set('page', '1')
       .set('sparkline', 'false')
       .set('price_change_percentage', '24h');

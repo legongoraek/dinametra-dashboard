@@ -1,0 +1,110 @@
+<div class="crypto-table-wrapper">
+  <p-table
+    [value]="markets"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [tableStyle]="{ 'min-width': '760px' }"
+    responsiveLayout="scroll"
+    sortField="market_cap_rank"
+    [sortOrder]="1"
+    aria-label="Tabla de criptomonedas"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="market_cap_rank">
+          Rank
+          <p-sortIcon field="market_cap_rank" />
+        </th>
+
+        <th pSortableColumn="name">
+          Moneda
+          <p-sortIcon field="name" />
+        </th>
+
+        <th pSortableColumn="current_price">
+          Precio
+          <p-sortIcon field="current_price" />
+        </th>
+
+        <th pSortableColumn="market_cap">
+          Market Cap
+          <p-sortIcon field="market_cap" />
+        </th>
+
+        <th pSortableColumn="total_volume">
+          Volumen 24h
+          <p-sortIcon field="total_volume" />
+        </th>
+
+        <th pSortableColumn="price_change_percentage_24h">
+          Cambio 24h
+          <p-sortIcon field="price_change_percentage_24h" />
+        </th>
+
+        <th pSortableColumn="last_updated">
+          Actualizado
+          <p-sortIcon field="last_updated" />
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-coin>
+      <tr>
+        <td>
+          <strong>#{{ coin.market_cap_rank }}</strong>
+        </td>
+
+        <td>
+          <div class="coin-cell">
+            <p-avatar
+              [image]="coin.image"
+              shape="circle"
+              size="normal"
+              [ariaLabel]="'Logo de ' + coin.name"
+            />
+
+            <div>
+              <strong>{{ coin.name }}</strong>
+              <span>{{ coin.symbol.toUpperCase() }}</span>
+            </div>
+          </div>
+        </td>
+
+        <td>
+          {{ formatCurrency(coin.current_price) }}
+        </td>
+
+        <td>
+          {{ formatCompactCurrency(coin.market_cap) }}
+        </td>
+
+        <td>
+          {{ formatCompactCurrency(coin.total_volume) }}
+        </td>
+
+        <td>
+          <p-tag
+            [severity]="getChangeSeverity(coin.price_change_percentage_24h)"
+            [icon]="getChangeIcon(coin.price_change_percentage_24h)"
+            [value]="formatPercent(coin.price_change_percentage_24h)"
+          />
+        </td>
+
+        <td>
+          {{ formatDate(coin.last_updated) }}
+        </td>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7">
+          <div class="empty-table">
+            No hay criptomonedas disponibles para mostrar.
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
