@@ -2,7 +2,7 @@
   <header class="dashboard-header">
     <div>
       <p-tag value="Prueba Técnica Dinametra" severity="info" />
-      <h1>Crypto Market Dashboard</h1>
+      <h1 id="dashboard-title">Crypto Market Dashboard</h1>
       <p>
         Monitorea precios, volumen y capitalización de mercado de criptomonedas
         usando datos públicos de CoinGecko.
@@ -14,15 +14,15 @@
       icon="pi pi-circle-fill"
       severity="success"
       outlined="true"
-      ariaLabel="Estado de datos en tiempo real"
+      ariaLabel="Indicador de datos en tiempo real desde CoinGecko"
     />
   </header>
 
-  <p-card styleClass="dashboard-card filters-card">
+  <p-card styleClass="dashboard-card filters-card" role="region" aria-labelledby="filters-title">
     <ng-template pTemplate="header">
       <div class="card-header">
         <div>
-          <h2>Filtros</h2>
+          <h2 id="filters-title">Filtros</h2>
           <p>Selecciona una criptomoneda, divisa y rango de tiempo.</p>
         </div>
       </div>
@@ -33,61 +33,110 @@
     />
   </p-card>
 
-  <app-market-summary
-    [coin]="selectedCoin()"
-    [currency]="currentFilters().currency"
-  />
-
-  <section class="charts-grid" aria-label="Visualizaciones del mercado">
-    <p-card styleClass="dashboard-card chart-card">
-      <ng-template pTemplate="header">
-        <div class="card-header">
-          <div>
-            <h2>Histórico de precio</h2>
-            <p>Evolución del precio por rango seleccionado.</p>
-          </div>
-        </div>
-      </ng-template>
-
-      <app-price-line-chart
-        [chart]="priceChart()"
-        [currency]="currentFilters().currency"
-        [coinName]="selectedCoin()?.name || currentFilters().coinId"
+  @if (isLoading()) {
+    <section class="state-card" aria-live="polite" aria-busy="true" aria-labelledby="loading-title">
+      <p-progressSpinner ariaLabel="Cargando datos del mercado" />
+      <h2 id="loading-title">Cargando información del mercado</h2>
+      <p>Estamos consultando los datos más recientes desde CoinGecko.</p>
+    </section>
+  } @else if (errorMessage()) {
+    <section class="state-card error-state" role="alert" aria-labelledby="error-title">
+      <p-message
+        severity="error"
+        [text]="errorMessage()"
       />
-    </p-card>
 
-    <p-card styleClass="dashboard-card chart-card">
+      <div class="state-content">
+        <h2 id="error-title">No se pudieron cargar los datos</h2>
+        <p>
+          Puede ser un problema temporal de conexión o límite de solicitudes.
+        </p>
+
+        <p-button
+          label="Reintentar"
+          icon="pi pi-refresh"
+          severity="danger"
+          outlined="true"
+          ariaLabel="Reintentar carga de datos del mercado"
+          (onClick)="retryLoad()"
+        />
+      </div>
+    </section>
+  } @else if (!hasData) {
+    <section class="state-card empty-state" aria-live="polite" aria-labelledby="empty-title">
+      <i class="pi pi-database" aria-hidden="true"></i>
+      <h2 id="empty-title">No hay datos disponibles</h2>
+      <p>
+        No encontramos información para los filtros seleccionados.
+        Prueba con otra criptomoneda o divisa.
+      </p>
+
+      <p-button
+        label="Recargar"
+        icon="pi pi-refresh"
+        severity="secondary"
+        outlined="true"
+        ariaLabel="Recargar datos del dashboard"
+        (onClick)="retryLoad()"
+      />
+    </section>
+  } @else {
+    <app-market-summary
+      [coin]="selectedCoin()"
+      [currency]="currentFilters().currency"
+    />
+
+    <section class="charts-grid" aria-label="Visualizaciones del mercado de criptomonedas">
+      <p-card styleClass="dashboard-card chart-card" role="region" aria-labelledby="price-chart-title">
+        <ng-template pTemplate="header">
+          <div class="card-header">
+            <div>
+              <h2 id="price-chart-title">Histórico de precio</h2>
+              <p>Evolución del precio por rango seleccionado.</p>
+            </div>
+          </div>
+        </ng-template>
+
+        <app-price-line-chart
+          [chart]="priceChart()"
+          [currency]="currentFilters().currency"
+          [coinName]="selectedCoin()?.name || currentFilters().coinId"
+        />
+      </p-card>
+
+      <p-card styleClass="dashboard-card chart-card" role="region" aria-labelledby="volume-chart-title">
+        <ng-template pTemplate="header">
+          <div class="card-header">
+            <div>
+              <h2 id="volume-chart-title">Comparación de volumen</h2>
+              <p>Volumen de mercado entre criptomonedas.</p>
+            </div>
+          </div>
+        </ng-template>
+
+        <app-volume-bar-chart
+          [markets]="markets()"
+          [currency]="currentFilters().currency"
+        />
+      </p-card>
+    </section>
+
+    <p-card styleClass="dashboard-card table-card" role="region" aria-labelledby="table-title">
       <ng-template pTemplate="header">
         <div class="card-header">
           <div>
-            <h2>Comparación de volumen</h2>
-            <p>Volumen de mercado entre criptomonedas.</p>
+            <h2 id="table-title">Top criptomonedas</h2>
+            <p>Listado general del mercado actual.</p>
           </div>
         </div>
       </ng-template>
 
-      <app-volume-bar-chart
+      <app-crypto-table
         [markets]="markets()"
         [currency]="currentFilters().currency"
       />
     </p-card>
-  </section>
-
-  <p-card styleClass="dashboard-card table-card">
-    <ng-template pTemplate="header">
-      <div class="card-header">
-        <div>
-          <h2>Top criptomonedas</h2>
-          <p>Listado general del mercado actual.</p>
-        </div>
-      </div>
-    </ng-template>
-
-    <app-crypto-table
-      [markets]="markets()"
-      [currency]="currentFilters().currency"
-    />
-  </p-card>
+  }
 
   <p-divider />
 

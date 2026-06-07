@@ -4,6 +4,7 @@
 
     <p-select
       inputId="coin"
+      ariaLabel="Selecciona una criptomoneda para filtrar el dashboard"
       [options]="cryptoOptions"
       optionLabel="label"
       optionValue="value"
@@ -20,6 +21,7 @@
 
     <p-select
       inputId="currency"
+      ariaLabel="Selecciona una divisa para filtrar el dashboard"
       [options]="currencyOptions"
       optionLabel="label"
       optionValue="value"
@@ -36,6 +38,7 @@
 
     <p-select
       inputId="days"
+      ariaLabel="Selecciona un rango de tiempo para filtrar el dashboard"
       [options]="daysOptions"
       optionLabel="label"
       optionValue="value"
@@ -52,6 +55,7 @@
 
     <p-select
       inputId="sortBy"
+      ariaLabel="Selecciona un criterio de orden para filtrar el dashboard"
       [options]="sortOptions"
       optionLabel="label"
       optionValue="value"
@@ -70,6 +74,7 @@
       icon="pi pi-refresh"
       severity="secondary"
       outlined="true"
+      ariaLabel="Restablecer filtros del dashboard"
       (onClick)="resetFilters()"
     />
   </div>

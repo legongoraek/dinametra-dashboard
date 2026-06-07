@@ -61,7 +61,7 @@
   padding: 0;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1180px) {
   .summary-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -70,5 +70,24 @@
 @media (max-width: 640px) {
   .summary-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .summary-card strong {
+    font-size: 1.45rem;
+  }
+
+  .coin-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  :host ::ng-deep .p-card {
+    border-radius: 18px;
+  }
+
+  :host ::ng-deep .p-card .p-card-body {
+    padding: 16px;
   }
 }

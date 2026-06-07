@@ -5,6 +5,8 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { TagModule } from 'primeng/tag';
 import { DividerModule } from 'primeng/divider';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { MessageModule } from 'primeng/message';
 
 import { CryptoFiltersComponent } from './features/dashboard/components/crypto-filters/crypto-filters';
 import { MarketSummaryComponent } from './features/dashboard/components/market-summary/market-summary';
@@ -24,6 +26,8 @@ import { CryptoMarketChart } from './core/models/crypto-market-chart.model';
     CardModule,
     TagModule,
     DividerModule,
+    ProgressSpinnerModule,
+    MessageModule,
     CryptoFiltersComponent,
     MarketSummaryComponent,
     PriceLineChartComponent,
@@ -59,6 +63,15 @@ export class App implements OnInit {
   onFiltersChange(filters: CryptoFilters): void {
     this.currentFilters.set(filters);
     this.loadDashboardData();
+  }
+
+  retryLoad(): void {
+    this.cryptoService.clearCache();
+    this.loadDashboardData();
+  }
+
+  get hasData(): boolean {
+    return this.markets().length > 0 && !!this.selectedCoin();
   }
 
   private loadDashboardData(): void {

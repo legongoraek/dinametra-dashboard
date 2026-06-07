@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { UpperCasePipe } from '@angular/common';
 
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
@@ -14,7 +13,6 @@ import { CurrencyCode } from '../../../../core/models/currency-code.model';
     TableModule,
     TagModule,
     AvatarModule,
-    UpperCasePipe,
   ],
   templateUrl: './crypto-table.html',
   styleUrl: './crypto-table.css',

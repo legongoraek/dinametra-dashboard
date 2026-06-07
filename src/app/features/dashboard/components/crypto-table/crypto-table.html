@@ -1,4 +1,8 @@
 <div class="crypto-table-wrapper">
+  <p id="crypto-table-description" class="sr-only">
+    Tabla ordenable y paginada con ranking, precio, capitalización de mercado,
+    volumen, variación de precio y fecha de actualización de criptomonedas.
+  </p>
   <p-table
     [value]="markets"
     [paginator]="true"
@@ -9,6 +13,7 @@
     sortField="market_cap_rank"
     [sortOrder]="1"
     aria-label="Tabla de criptomonedas"
+    aria-describedby="crypto-table-description"
   >
     <ng-template pTemplate="header">
       <tr>
