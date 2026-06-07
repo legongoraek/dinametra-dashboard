@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist/dinametra-technical-test/browser"
+  publish = "dist/dinametra-crypto-dashboard/browser"
 
 [[redirects]]
   from = "/*"
