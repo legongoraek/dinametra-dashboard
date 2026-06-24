@@ -15,7 +15,6 @@
     "Apple Color Emoji",
     "Segoe UI Emoji",
     "Segoe UI Symbol";
-    width: 100%;
 }
 
 .dashboard-shell {
@@ -115,6 +114,18 @@
 :host ::ng-deep .p-button:hover {
   background: #166fe5;
   border-color: #166fe5;
+}
+
+:host ::ng-deep .p-button-outlined {
+  background: transparent;
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+:host ::ng-deep .p-button-outlined:hover {
+  background: rgba(24, 119, 242, 0.08);
+  border-color: #166fe5;
+  color: #166fe5;
 }
 
 :host ::ng-deep .p-button .pi-circle-fill {

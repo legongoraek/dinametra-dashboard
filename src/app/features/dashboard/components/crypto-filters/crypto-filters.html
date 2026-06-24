@@ -11,7 +11,7 @@
       [(ngModel)]="filters.coinId"
       name="coinId"
       placeholder="Selecciona una moneda"
-      styleClass="w-full"
+      class="w-full"
       (onChange)="emitFilters()"
     />
   </div>
@@ -28,7 +28,7 @@
       [(ngModel)]="filters.currency"
       name="currency"
       placeholder="Selecciona una divisa"
-      styleClass="w-full"
+      class="w-full"
       (onChange)="emitFilters()"
     />
   </div>
@@ -45,7 +45,7 @@
       [(ngModel)]="filters.days"
       name="days"
       placeholder="Selecciona un rango"
-      styleClass="w-full"
+      class="w-full"
       (onChange)="emitFilters()"
     />
   </div>
@@ -62,7 +62,7 @@
       [(ngModel)]="filters.sortBy"
       name="sortBy"
       placeholder="Selecciona un orden"
-      styleClass="w-full"
+      class="w-full"
       (onChange)="emitFilters()"
     />
   </div>
@@ -72,7 +72,7 @@
       type="button"
       label="Restablecer"
       icon="pi pi-refresh"
-      severity="secondary"
+      severity="primary"
       outlined="true"
       ariaLabel="Restablecer filtros del dashboard"
       (onClick)="resetFilters()"
