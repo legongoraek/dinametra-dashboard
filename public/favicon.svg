@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Dinametra favicon</title>
+  <desc id="desc">A geometric letter D containing an ascending market chart.</desc>
+  <defs>
+    <linearGradient id="background" x1="10" y1="8" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102B46"/>
+      <stop offset="1" stop-color="#061522"/>
+    </linearGradient>
+    <linearGradient id="market" x1="27" y1="40" x2="48" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#background)"/>
+  <rect x="2.75" y="2.75" width="58.5" height="58.5" rx="14.25" fill="none" stroke="#38BDF8" stroke-opacity=".18" stroke-width="1.5"/>
+
+  <path
+    fill="#F4FBFF"
+    fill-rule="evenodd"
+    d="M14 10h17.5C46.8 10 57 18.7 57 32S46.8 54 31.5 54H14V10Zm11 10v24h6.5C40.9 44 47 39.5 47 32s-6.1-12-15.5-12H25Z"
+  />
+
+  <path d="M27.5 39.5 34 33l5 4 9-11" fill="none" stroke="#061522" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27.5 39.5 34 33l5 4 9-11" fill="none" stroke="url(#market)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M42.5 26H48v5.5" fill="none" stroke="#22D3EE" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
