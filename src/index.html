@@ -35,8 +35,16 @@
     property="og:description"
     content="Dashboard interactivo para explorar precios, volumen, capitalización e histórico del mercado de criptomonedas con datos públicos de CoinGecko."
   >
+  <meta property="og:image" content="https://dinametra-dashboard.netlify.app/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta
+    property="og:image:alt"
+    content="Dinametra Crypto Market Dashboard — precios y análisis de criptomonedas"
+  >
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta
     name="twitter:title"
     content="Dinametra Crypto Market Dashboard | Precios y análisis de criptomonedas"
@@ -45,29 +53,58 @@
     name="twitter:description"
     content="Dashboard interactivo para explorar precios, volumen, capitalización e histórico del mercado de criptomonedas con datos públicos de CoinGecko."
   >
+  <meta name="twitter:image" content="https://dinametra-dashboard.netlify.app/og-image.png">
+  <meta
+    name="twitter:image:alt"
+    content="Dinametra Crypto Market Dashboard — precios y análisis de criptomonedas"
+  >
 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Dinametra Crypto Market Dashboard",
-      "url": "https://dinametra-dashboard.netlify.app/",
-      "description": "Dashboard interactivo para explorar precios, volumen, capitalización e histórico del mercado de criptomonedas con datos públicos de CoinGecko.",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "isAccessibleForFree": true,
-      "inLanguage": "es",
-      "about": [
+      "@graph": [
         {
-          "@type": "Thing",
-          "name": "Mercado de criptomonedas"
+          "@type": "WebSite",
+          "@id": "https://dinametra-dashboard.netlify.app/#website",
+          "url": "https://dinametra-dashboard.netlify.app/",
+          "name": "Dinametra Crypto Market Dashboard",
+          "description": "Dashboard interactivo para explorar precios, volumen, capitalización e histórico del mercado de criptomonedas con datos públicos de CoinGecko.",
+          "inLanguage": "es-MX"
         },
         {
-          "@type": "Thing",
-          "name": "Precios y volumen de criptomonedas"
+          "@type": "WebApplication",
+          "@id": "https://dinametra-dashboard.netlify.app/#application",
+          "name": "Dinametra Crypto Market Dashboard",
+          "url": "https://dinametra-dashboard.netlify.app/",
+          "description": "Dashboard interactivo para explorar precios, volumen, capitalización e histórico del mercado de criptomonedas con datos públicos de CoinGecko.",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web",
+          "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+          "isAccessibleForFree": true,
+          "inLanguage": "es-MX",
+          "isPartOf": {
+            "@id": "https://dinametra-dashboard.netlify.app/#website"
+          },
+          "featureList": [
+            "Resumen del mercado de criptomonedas",
+            "Histórico de precios por rango de tiempo",
+            "Comparación de volumen entre criptomonedas",
+            "Tabla paginada de criptomonedas",
+            "Filtros por criptomoneda, divisa, rango temporal y orden de mercado"
+          ],
+          "about": [
+            {
+              "@type": "Thing",
+              "name": "Mercado de criptomonedas"
+            },
+            {
+              "@type": "Thing",
+              "name": "Precios y volumen de criptomonedas"
+            }
+          ],
+          "citation": "https://www.coingecko.com/"
         }
-      ],
-      "citation": "https://www.coingecko.com/"
+      ]
     }
   </script>
 </head>

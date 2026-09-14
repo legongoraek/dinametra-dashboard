@@ -3,7 +3,11 @@ name: SEO GEO verification
 on:
   push:
     branches:
-      - feat/seo-geo
+      - main
+      - feat/seo-geo-hardening
+  pull_request:
+    branches:
+      - main
 
 jobs:
   verify:
@@ -20,6 +24,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify SEO and GEO contract
+        run: npm run seo:check
 
       - name: Run tests
         run: npm test -- --watch=false
