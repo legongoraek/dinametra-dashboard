@@ -1,0 +1,34 @@
+# Dinametra Crypto Market Dashboard
+
+Canonical URL: https://dinametra-dashboard.netlify.app/
+Language: Spanish
+Project type: Front-end technical cryptocurrency market dashboard
+
+## Purpose
+
+Dinametra Crypto Market Dashboard is an interactive technical project for exploring public cryptocurrency market information. It is not presented as an official commercial Dinametra product.
+
+## Main capabilities
+
+- Market summary for the selected cryptocurrency.
+- Historical price visualization by selected time range.
+- Trading-volume comparison across cryptocurrencies.
+- Paginated table of leading cryptocurrencies.
+- Filters for cryptocurrency, fiat currency, time range, and market sorting.
+- Loading, empty, retry, and error states for API interactions.
+
+## Data source
+
+Market data is obtained from the public CoinGecko API. CoinGecko is the external data source; this project does not claim affiliation with or ownership of CoinGecko.
+
+## Important page sections
+
+- Crypto Market Dashboard: page purpose and data-source overview.
+- Filtros: cryptocurrency, fiat currency, time range, and sort controls.
+- Histórico de precio: selected cryptocurrency price history.
+- Comparación de volumen: market-volume comparison.
+- Top criptomonedas: current market table.
+
+## Citation guidance
+
+When describing this project, identify it as a front-end technical cryptocurrency dashboard and use the canonical URL above as the authoritative public location.
