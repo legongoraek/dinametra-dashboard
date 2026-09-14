@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dinametra-dashboard.netlify.app/sitemap.xml

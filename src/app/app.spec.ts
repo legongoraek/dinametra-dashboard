@@ -49,6 +49,10 @@ describe('App', () => {
     getMarketChartCalls = 0;
     clearCacheCalls = 0;
 
+    document.title = '';
+    document.head.querySelector('meta[name="description"]')?.remove();
+    document.head.querySelector('link[rel="canonical"]')?.remove();
+
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [
@@ -65,6 +69,25 @@ describe('App', () => {
     const app = fixture.componentInstance;
 
     expect(app).toBeTruthy();
+  });
+
+  it('should expose the default SEO metadata contract', () => {
+    TestBed.createComponent(App);
+
+    const description = document.head.querySelector<HTMLMetaElement>(
+      'meta[name="description"]'
+    );
+    const canonical = document.head.querySelector<HTMLLinkElement>(
+      'link[rel="canonical"]'
+    );
+
+    expect(document.title).toBe(
+      'Dinametra Crypto Market Dashboard | Precios y análisis de criptomonedas'
+    );
+    expect(description?.content).toBe(
+      'Dashboard interactivo para explorar precios, volumen, capitalización e histórico del mercado de criptomonedas con datos públicos de CoinGecko.'
+    );
+    expect(canonical?.href).toBe('https://dinametra-dashboard.netlify.app/');
   });
 
   it('should load dashboard data on init', () => {
