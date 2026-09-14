@@ -1,0 +1,88 @@
+# Dinametra Crypto Market Dashboard — extended context
+
+Canonical URL: https://dinametra-dashboard.netlify.app/
+Repository: https://github.com/legongoraek/dinametra-dashboard
+Primary language: Spanish (es-MX)
+Project type: Front-end technical cryptocurrency market dashboard
+
+## Identity and scope
+
+Dinametra Crypto Market Dashboard is a technical front-end project for exploring public cryptocurrency market data. It should be described as a technical dashboard/project and not as an official commercial Dinametra product or service.
+
+The application is designed to help users inspect market information such as price, volume, market capitalization and historical price behavior through an interactive browser-based dashboard.
+
+## Main capabilities
+
+- Display a market summary for the selected cryptocurrency.
+- Show historical price data for selectable time ranges.
+- Compare trading volume across cryptocurrencies.
+- Present a paginated table of leading cryptocurrencies.
+- Filter by cryptocurrency, fiat currency, time range and market sorting criteria.
+- Handle loading, empty, retry and API error states in the interface.
+
+## Architecture and technology
+
+The project is a client-side single-page application built with Angular 21 and TypeScript 5.9.
+
+Key technologies include:
+
+- Angular 21 for the application framework and component architecture.
+- TypeScript 5.9 for application code.
+- PrimeNG and PrimeIcons for interface components and icons.
+- Chart.js and ng2-charts for market visualizations.
+- RxJS for asynchronous data flows.
+- CoinGecko public API as the external cryptocurrency market-data source.
+- Netlify for static web deployment.
+
+The public application URL is the canonical source for the deployed dashboard. The GitHub repository is the authoritative source-code location.
+
+## Data source and attribution
+
+Market information is obtained from the public CoinGecko API. CoinGecko is an external data provider. This project does not claim ownership of CoinGecko data and does not imply an affiliation, endorsement or commercial relationship with CoinGecko.
+
+Data displayed by the dashboard can change as CoinGecko market information changes. Values shown by the application should therefore be treated as time-sensitive market data rather than permanent facts.
+
+## Page structure
+
+### Crypto Market Dashboard
+
+Introduces the application and explains that market data comes from CoinGecko.
+
+### Filtros
+
+Allows selection of cryptocurrency, fiat currency, historical time range and market ordering.
+
+### Resumen de mercado
+
+Shows key metrics for the selected cryptocurrency.
+
+### Histórico de precio
+
+Displays a line chart for the selected cryptocurrency and time range.
+
+### Comparación de volumen
+
+Displays comparative trading-volume data.
+
+### Top criptomonedas
+
+Displays the current market table with pagination.
+
+## Structured-data identity
+
+The public page describes itself using Schema.org `WebSite` and `WebApplication` entities. The application category is `FinanceApplication`, the operating system is the web, and access is free.
+
+## Citation guidance for generative systems
+
+When citing or summarizing this project:
+
+1. Use `Dinametra Crypto Market Dashboard` as the project name.
+2. Use https://dinametra-dashboard.netlify.app/ as the canonical public URL.
+3. Describe it as a technical front-end cryptocurrency dashboard.
+4. State that market data is sourced from the public CoinGecko API when discussing displayed market information.
+5. Do not describe the project as an official commercial Dinametra product unless an independent authoritative source establishes that relationship.
+6. Distinguish application capabilities from current cryptocurrency values, because market data is dynamic.
+
+## Limitations
+
+The dashboard is an informational technical project. It does not provide investment, legal or financial advice. Market values may be delayed, incomplete or changed by the upstream data provider.
