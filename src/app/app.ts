@@ -15,6 +15,7 @@ import { VolumeBarChartComponent } from './features/dashboard/components/volume-
 import { CryptoTableComponent } from './features/dashboard/components/crypto-table/crypto-table';
 
 import { CryptoService } from './core/services/crypto.service';
+import { SeoService } from './core/services/seo.service';
 import { CryptoFilters } from './core/models/crypto-filters.model';
 import { CryptoMarket } from './core/models/crypto-market.model';
 import { CryptoMarketChart } from './core/models/crypto-market-chart.model';
@@ -54,7 +55,12 @@ export class App implements OnInit {
   isLoading = signal(false);
   errorMessage = signal('');
 
-  constructor(private readonly cryptoService: CryptoService) {}
+  constructor(
+    private readonly cryptoService: CryptoService,
+    seoService: SeoService
+  ) {
+    seoService.applyDefaultSeo();
+  }
 
   ngOnInit(): void {
     this.loadDashboardData();
