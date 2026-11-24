@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node scripts/static-shell.mjs dist/dinametra-crypto-dashboard/browser/index.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "seo:check": "node scripts/verify-seo-geo.mjs"
